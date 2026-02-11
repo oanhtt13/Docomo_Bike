@@ -106,7 +106,6 @@ FR-LW-1: Location Detection
      - File config cho phép điều chỉnh thông số của ứng dụng trên thiết bị phần cứng. Tham khảo phụ lục 1.
 
        Dựa trên thông tin trên file config ứng dụng hoạt động theo đúng cài đặt.
-   * - 3. 
 
 Appendix
 -------------------
@@ -114,13 +113,13 @@ Appendix
 Config file
 
 .. list-table:: **Business Flow**
-   :widths: 15 30 30
+   :widths: 10 20 30
    :header-rows: 1
 
    * - Key
      - Desciption
      - Value
-   * - ``mode`` :
+   * - ``mode``
      - Chọn cách ứng dụng khởi động
      - Datatype: String
 
