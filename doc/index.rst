@@ -2,5 +2,5 @@
    :maxdepth: 5
    :caption: Contents:
 
-   srsDocument
-   hldDocument
+   SRS_Doc
+   HLD_Doc
