@@ -227,12 +227,39 @@ FR-LW-2: Warning Notification
 
        Lưu log
 
+FR-CC: Connect Checking
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table:: **FR-LW-2**
+   :widths: 15 10
+   :header-rows: 1
+
+   * - Content
+     - Detail
+   * - Description
+     - Tính năng cho phép phần cứng gửi thông tin vị trí xe đạp về ứng dụng điện thoại thông qua abd interface.
+   * - Input
+     - Thông tin vị trí xe đạp được lấy tiwf FR-LW-1.
+   * - Output
+     - Ứng dụng phát âm báo "Xin hãy di chuyển chậm lại" bằng tiếng Nhật.
+   * - Preconditions
+     - Thiết bị được cấp nguồn đầy đủ.
+       
+       Thiết bị phần cứng và ứng dụng điện thoại phải được kết nối.
+       
+       Ứng dụng điện thoại được mở sẵn.
+   * - Postconditions
+       
+       Lưu log tại ứng dụng phần cứng, ứng dụng điện thoại.
+
+       Phát âm thông báo thành công.
 
 Non-Function Requirement
 -----------------------------
 
 * MIoU: 70%
 * Accuracy: 70%
+* Tốc độ xử lý min: 500ms/image
 
 Appendix
 -------------------
