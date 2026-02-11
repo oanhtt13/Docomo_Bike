@@ -96,13 +96,19 @@ FR-LW-1: Location Detection
 
        Nội dung file config:
 
-	   ``{
+	   {
+
           "mode": "paused",
+
           "processing_mode": "capture-segment",
+
           "interval": 0.5,
+
           "model_path": "/userdata/models/ddrnet_rk1808.rknn",
+
           "base_dir": "/userdata/captures"
-        }``
+          
+        }
      - File config cho phép điều chỉnh thông số của ứng dụng trên thiết bị phần cứng. Tham khảo phụ lục 1.
 
        Dựa trên thông tin trên file config ứng dụng hoạt động theo đúng cài đặt.
