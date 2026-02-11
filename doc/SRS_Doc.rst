@@ -1,4 +1,4 @@
-SRS Documweentation
+SRS Documentation
 ======================
 
 Introduction
@@ -227,10 +227,105 @@ FR-LW-2: Warning Notification
 
        Lưu log
 
-FR-CC: Connect Checking
+FR-CL: Clear Sensitive Infomation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+FR-CL-1: Send image
+***********************
+
+.. list-table:: **FR-CL-1**
+   :widths: 15 10
+   :header-rows: 1
+
+   * - Content
+     - Detail
+   * - Description
+     - Cho phép ứng dụng điện thoại gửi ảnh sang ứng dụng điện thoại thông qua adb interface.
+   * - Input
+     - Ảnh thu thập từ camera thiết bị.
+   * - Output
+     - Ảnh chưa khuôn mặt người đi đường đã được làm mờ.
+   * - Trigger
+     - Ngay sau khi thiết bị gửi ảnh cho ứng dụng.
+   * - Preconditions
+     - Thiết bị được cấp nguồn đầy đủ.
+       
+       Thiết bị hỗ trợ dây USB Type C, cho phép lấy thông tin qua ADB Interface.
+	   
+	   (Nếu muốn hỗ trợ cổng khác, thiết bị cũng cần phải hỗ trợ).
+   * - Postconditions
+     - Lưu log chương trình.
+
+       Ảnh đã được làm mờ lưu vào bộ nhớ.
+
+       Xóa ảnh phía thiết bị phần cứng.
+
+.. list-table:: **Business Flow**
+   :widths: 15 30 30
+   :header-rows: 1
+
+   * - Step
+     - Desciption
+     - Business Logic Acceptance Criteria
+   * - 1. Gửi ảnh sau khi đã xử lý AI
+     - Ảnh sau khi xử lý AI được tự dộng push sang thiết bị
+     - Tất cả các ảnh (ảnh thu thập, ảnh sau xử lý)
+
+       Quá trình gửi ảnh phải được mã hóa, chỉ ứng dụng HBLab tự phát triển mới có thể đọc được ảnh.
+   * - Điện thoại nhận ảnh
+     - Ứng dụng điện thoại tiếp nhập ảnh, lưu vào kho lưu trữ
+     - Lưu ảnh thành công
+
+       Gửi thông báo về cho ứng dụng
+   * - Thiết bị xóa ảnh
+     - Xóa toàn bộ ảnh trong bộ nhớ
+     - Xóa ảnh thành công.
+
+       Lưu thông tin vào log.
+
+
+FR-CL-2: Clear Sensitive Info
+***********************************
+
+.. list-table:: **FR-CL-1**
+   :widths: 15 10
+   :header-rows: 1
+
+   * - Content
+     - Detail
+   * - Description
+     - Cho phép hệ thống xóa/làm mờ những thông tin nhạy cảm khỏi ảnh (mặt người đi đường) để tránh vi phạm luật tại Nhật.
+   * - Input
+     - Ảnh nhận được từ thiết bị đã được gửi cho ứng dụng điện thoại.
+   * - Output
+     - Ảnh chưa khuôn mặt người đi đường đã được làm mờ.
+   * - Trigger
+     - Ngay sau khi ứng dụng điện thoại nhận được ảnh từ device
+   * - Preconditions
+     - Nhận được ảnh từ thiết bị.
+   * - Postconditions
+     - Lưu log chương trình.
+
+       Ảnh đã được làm mờ lưu vào bộ nhớ.
+
+.. list-table:: **Business Flow**
+   :widths: 15 30 30
+   :header-rows: 1
+
+   * - Step
+     - Desciption
+     - Business Logic Acceptance Criteria
+   * - 1. Phát hiện khuôn mặt trong ảnh
+     - Phát hiện khuôn mặt người trong ứng dụng
+     - Phát hiện tất cả các khuôn mặt trong ảnh
+   * - 2. Xóa/làm mờ khuôn mặt
+     - Làm mờ khuôn mặt
+     - Cần làm mờ khuôn mặt hết mức có thể
+
+FR-CC: Connection Checking
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. list-table:: **FR-DA**
+.. list-table:: **FR-CC**
    :widths: 15 10
    :header-rows: 1
 
@@ -268,6 +363,36 @@ FR-CC: Connect Checking
    * - 3. Disconnect
      - Ngắt kết nối vật lý dây usb
      - Ứng dụng hiển thị thông báo: đã disconnect với device.
+
+FR-Noti: Notification
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table:: **FR-Noti**
+   :widths: 15 10
+   :header-rows: 1
+
+   * - Content
+     - Detail
+   * - Description
+     - Cho phép thiết bị cập nhật trạng thái đến ứng dụng điện thoại.
+
+       Ứng dụng hiển thị thông báo (âm báo/popup/...)
+   * - Input
+     - Thông tin trạng thái pin.
+   * - Output
+     - Ứng dụng hiển thị thông báo/phát âm thanh.
+   * - Trigger
+     - Khi system os thiết bị gửi thông báo
+   * - Preconditions
+     - Thiết bị được cấp nguồn đầy đủ.
+       
+       Thiết bị hỗ trợ dây USB Type C, cho phép lấy thông tin qua ADB Interface.
+
+       Thiết bị và diện thoại được kết nối thông qua dây usb.
+   * - Postconditions
+     - Lưu log chương trình.
+
+       Phát thông báo.
 
 Non-Function Requirement
 -----------------------------
