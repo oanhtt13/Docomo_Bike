@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Haesang ERP API'
+project = 'Docomo Bike'
 copyright = 'workshop participant'
 author = 'Trương Thị Oanh'
 release = '0.1'
