@@ -19,6 +19,7 @@ In-Scope
 Phát triển ứng dụng trên thiết bị là điện thoại, cho phép phát cảnh báo tới người dùng khi phát hiện người dùng đang di chuyển trên vỉa hè.
 
 Các tính năng chính:
+
 * Xác định vị trí xe đang di chuyển, phát cảnh báo đi chậm
 * Kiểm tra connect giữa thiết bị và điện thoại
 * Push ảnh từ thiết bị sang điện thoại.
@@ -87,3 +88,50 @@ FR-LW-1: Location Detection
    * - Step
      - Desciption
      - Business Logic Acceptance Criteria
+   * - 1. Khởi động chương trình
+     - Cấp nguồn cho thiết bị.
+     - Thiết bị tự động chạy ngay khi được cấp nguồn.
+   * - 2. Check file config
+     - Ứng dụng kiểm tra file config và hoạt động
+     - File config cho phép điều chỉnh thông số của ứng dụng trên thiết bị phần cứng. Tham khảo phụ lục 1.
+   * - 
+
+Appendix
+-------------------
+
+Config file
+
+.. list-table:: **Business Flow**
+   :widths: 15 30 30
+   :header-rows: 1
+
+   * - Key
+     - Desciption
+     - Value
+   * - ``mode`` :
+     - Chọn cách ứng dụng khởi động
+     - Datatype: String
+
+       ``paused`` : ứng dụng khởi động bằng lệnh gửi từ máy tính
+
+       ``start`` : ứng dụng khởi động ngay khi cắm nguồn
+   * - ``processing_mode``
+     - Chọn chế độ hoạt động
+     - Datatype: String
+
+       ``capture-segment`` : ứng dụng chính
+
+       ``capture`` : thu thập ảnh
+   * - ``interval``
+     - Thời gian giữa 2 lần liên tiếp chụp ảnh
+     - Datatype: Float (unit: giây)
+   * - ``model_path``
+     - Đường dẫn đến folder chưa model
+     - Datatype: String
+
+       Sample: "/userdata/models/ddrnet_rk1808.rknn"
+   * - ``base_dir``
+     - Đường dẫn đến thư mục lưu trữ ảnh
+     - Datatype: String
+
+       Sample: "/userdata/captures"
