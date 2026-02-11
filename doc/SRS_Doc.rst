@@ -237,21 +237,37 @@ FR-CC: Connect Checking
    * - Content
      - Detail
    * - Description
-     - Phát triển ứng dụng trên thiết bị phần cứng do khách hàng cung cấp.
+     - Cho phép kiểm tra, thông báo trạng thái connect giữa thiết bị và điện thoại
    * - Input
-     - Ảnh thu thập khách hàng cung cấp
+     - Thông tin connect
    * - Output
-     - Log ứng dụng.
-
-       Bản tin gửi cho ứng dụng điện thoại.
+     - Thông báo connect/disconnect.
    * - Preconditions
      - Thiết bị được cấp nguồn đầy đủ.
        
-       Bộ nhớ trong chưa đầy.
-
-       Thiết bị được liên kết với camera.
+       Thiết bị hỗ trợ dây USB Type C, cho phép lấy thông tin qua ADB Interface.
+	   
+	   (Nếu muốn hỗ trợ cổng khác, thiết bị cũng cần phải hỗ trợ).
    * - Postconditions
      - Lưu log chương trình.
+
+
+.. list-table:: **Business Flow**
+   :widths: 15 30 30
+   :header-rows: 1
+
+   * - Step
+     - Desciption
+     - Business Logic Acceptance Criteria
+   * - 1. Khởi động ứng dụng
+     - Mở ứng dụng
+     - Hiển thị trạng thái điện thoại chưa được kết nối với ứng dụng
+   * - 2. Kết nối thiết bị với ứng dụng
+     - Kết nối vật lý dây usb
+     - Ứng dụng hiển thị thông báo: đã connect với device
+   * - 3. Disconnect
+     - Ngắt kết nối vật lý dây usb
+     - Ứng dụng hiển thị thông báo: đã disconnect với device.
 
 Non-Function Requirement
 -----------------------------
