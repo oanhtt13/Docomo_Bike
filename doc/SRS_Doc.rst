@@ -157,7 +157,7 @@ FR-LW-1: Location Detection
        Bộ nhớ trong chưa đầy.
    * - Postconditions
        
-       Lưu log chương trình.
+     - Lưu log chương trình.
        
        Thông tin ảnh overlay.
        
@@ -172,9 +172,9 @@ FR-LW-1: Location Detection
      - Business Logic Acceptance Criteria
    * - 1. Phát hiện vị trí xe đạp
        
-       Dựa trên hình ảnh thu được, đưa ra thông tin vị trí xe đạp đang di chuyển (làn đường/vỉa hè).
+     - Dựa trên hình ảnh thu được, đưa ra thông tin vị trí xe đạp đang di chuyển (làn đường/vỉa hè).
        
-       Ứng dụng cho phép phát hiện khu vực vỉa hè, lòng đường. Từ đó xác định được vị trí xe đạp đang di chuyển.
+     - Ứng dụng cho phép phát hiện khu vực vỉa hè, lòng đường. Từ đó xác định được vị trí xe đạp đang di chuyển.
 
 FR-LW-2: Warning Notification
 ********************************
