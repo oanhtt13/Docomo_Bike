@@ -55,6 +55,84 @@ Security
 Functional Requirements
 -----------------------------
 
+FR-DA: Device Application
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. list-table:: **FR-DA**
+   :widths: 15 10
+   :header-rows: 1
+
+   * - Content
+     - Detail
+   * - Description
+     - Phát triển ứng dụng trên thiết bị phần cứng do khách hàng cung cấp.
+   * - Input
+     - Ảnh thu thập khách hàng cung cấp
+   * - Output
+     - Log ứng dụng.
+
+       Bản tin gửi cho ứng dụng điện thoại.
+   * - Preconditions
+     - Thiết bị được cấp nguồn đầy đủ.
+       
+       Bộ nhớ trong chưa đầy.
+
+       Thiết bị được liên kết với camera.
+   * - Postconditions
+     - Lưu log chương trình.
+
+.. list-table:: **Business Flow**
+   :widths: 15 30 30
+   :header-rows: 1
+
+   * - Step
+     - Desciption
+     - Business Logic Acceptance Criteria
+   * - 1. Khởi động chương trình
+     - Cấp nguồn cho thiết bị.
+     - Thiết bị tự động chạy ngay khi được cấp nguồn.
+   * - 2. Check file config
+     - Ứng dụng kiểm tra file config và hoạt động.
+
+       Nội dung file config:
+
+	   {
+
+          "mode": "start",
+
+          "processing_mode": "capture-segment",
+
+          "interval": 0.5,
+
+          "model_path": "/userdata/models/ddrnet_rk1808.rknn",
+
+          "base_dir": "/userdata/captures"
+
+        }
+     - File config cho phép điều chỉnh thông số của ứng dụng trên thiết bị phần cứng. Tham khảo phụ lục 1.
+
+       Ứng dụng khởi động khi được cấp nguồn, hoạt động với chế độ phát hiện vị trí xe đạp.
+
+       Thời gian giữa 2 lần chụp ảnh liên tiếp: 0.5s.
+
+       Hoạt động với đúng model AI, lưu ảnh vào thư mục yêu cầu
+   * - 4. Gửi ảnh cho ứng dụng điện thoại
+     - Ảnh sau khi được thu thập sẽ được gửi cho thiết bị
+     - Gửi ảnh overlay, ảnh raw.
+
+       Ảnh sau khi được gửi thành công, tiến hành hóa phía thiết bị phần cứng.
+
+       Lưu log
+   * - 3. Dừng chương trình
+     - **Nếu:**
+
+       Nhận được lệnh yêu cầu dừng chương trình
+
+       **Thì:**
+
+       Ứng dụng tạm dừng
+     - Ứng dụng dừng lại, lưu log.
+
 FR-LW: Location Warning
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -75,11 +153,15 @@ FR-LW-1: Location Detection
      - Thông tin vị trí xe đang di chuyển: vỉa hè/lòng đường.
    * - Preconditions
      - Thiết bị được cấp nguồn đầy đủ.
-     - Bộ nhớ trong chưa đầy.
+       
+       Bộ nhớ trong chưa đầy.
    * - Postconditions
-     - Lưu log chương trình.
-     - Thông tin ảnh overlay.
-     - Thông tin ảnh raw.
+       
+       Lưu log chương trình.
+       
+       Thông tin ảnh overlay.
+       
+       Thông tin ảnh raw.
 
 .. list-table:: **Business Flow**
    :widths: 15 30 30
@@ -88,30 +170,70 @@ FR-LW-1: Location Detection
    * - Step
      - Desciption
      - Business Logic Acceptance Criteria
-   * - 1. Khởi động chương trình
-     - Cấp nguồn cho thiết bị.
-     - Thiết bị tự động chạy ngay khi được cấp nguồn.
-   * - 2. Check file config
-     - Ứng dụng kiểm tra file config và hoạt động.
 
-       Nội dung file config:
+   * - 3. Phát hiện vị trí xe đạp
+       
+       Dựa trên hình ảnh thu được, đưa ra thông tin vị trí xe đạp đang di chuyển (làn đường/vỉa hè).
+       
+       Ứng dụng cho phép phát hiện khu vực vỉa hè, lòng đường. Từ đó xác định được vị trí xe đạp đang di chuyển.
 
-	   {
+FR-LW-2: Warning Notification
+********************************
 
-          "mode": "paused",
+.. list-table:: **FR-LW-2**
+   :widths: 15 10
+   :header-rows: 1
 
-          "processing_mode": "capture-segment",
+   * - Content
+     - Detail
+   * - Description
+     - Tính năng cho phép phần cứng gửi thông tin vị trí xe đạp về ứng dụng điện thoại thông qua abd interface.
+   * - Input
+     - Thông tin vị trí xe đạp được lấy tiwf FR-LW-1.
+   * - Output
+     - Ứng dụng phát âm báo "Xin hãy di chuyển chậm lại" bằng tiếng Nhật.
+   * - Preconditions
+     - Thiết bị được cấp nguồn đầy đủ.
+       
+       Thiết bị phần cứng và ứng dụng điện thoại phải được kết nối.
+       
+       Ứng dụng điện thoại được mở sẵn.
+   * - Postconditions
+       
+       Lưu log tại ứng dụng phần cứng, ứng dụng điện thoại.
 
-          "interval": 0.5,
+       Phát âm thông báo thành công.
 
-          "model_path": "/userdata/models/ddrnet_rk1808.rknn",
+.. list-table:: **Business Flow**
+   :widths: 15 30 30
+   :header-rows: 1
 
-          "base_dir": "/userdata/captures"
-          
-        }
-     - File config cho phép điều chỉnh thông số của ứng dụng trên thiết bị phần cứng. Tham khảo phụ lục 1.
+   * - Step
+     - Desciption
+     - Business Logic Acceptance Criteria
+   * - 1. Device gửi thông báo cho điện thoại
+     - Sau khi phát hiện vị trí xe đạp di chuyển, ứng dụng gửi thông báo cho điện thoại thông qua abd.
+     - Thiết bị, điện thoại gửi nhận thông tin thành công. Số lần gửi/nhận phải khớp về số lượng, nội dung.
 
-       Dựa trên thông tin trên file config ứng dụng hoạt động theo đúng cài đặt.
+       Lưu log gửi/nhận.
+   * - 2. Thiết bị phát thông báo
+     - **Nếu:**
+
+       Điện thoại nhận được thông tin xe đạp đang di chuyển trên vỉa hè.
+
+       **Thì:**
+
+       Điện thoại phát âm báo: "Xin hãy di chuyển chậm lại"
+     - Ứng dụng phát thông báo thành công
+
+       Lưu log
+
+
+Non-Function Requirement
+-----------------------------
+
+* MIoU: 70%
+* Accuracy: 70%
 
 Appendix
 -------------------
