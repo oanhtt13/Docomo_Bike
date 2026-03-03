@@ -1,4 +1,4 @@
-SRS Documweentation
+SRS Documentation
 ======================
 
 Introduction
@@ -219,7 +219,7 @@ FR-LW-2: Warning Notification
 
        Lưu log
 
-.. list-table:: **Business Flow**
+.. list-table:: **External Flow**
    :widths: 15 30 30
    :header-rows: 1
 
