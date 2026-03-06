@@ -168,6 +168,14 @@ FR-LW-1: Location Detection
      - Dựa trên hình ảnh thu được, đưa ra thông tin vị trí xe đạp đang di chuyển (làn đường/vỉa hè).
      - Ứng dụng cho phép phát hiện khu vực vỉa hè, lòng đường. Từ đó xác định được vị trí xe đạp đang di chuyển.
 
+UI/UX demonstration
+
+.. image:: img/connection.png
+   :alt: connection
+
+.. image:: img/connecttion.png
+   :alt: connecttion
+
 FR-LW-2: Warning Notification
 ********************************
 
