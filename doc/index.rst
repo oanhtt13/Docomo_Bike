@@ -4,3 +4,4 @@
 
    SRS_Doc
    HLD_Doc
+   UIUX.rst
