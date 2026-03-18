@@ -32,15 +32,15 @@ Connection and Location Status
 
        Log ghi nhận
       
-       ``Thông báo gần nhất ``: Lần cuối cùng nhận thông tin vị trí xe đạp từ AI Unit
+       ``Thông báo gần nhất ``: Thời điểm gần nhất điện thoại phát âm thông báo
 
-       `` Tín hiệu gần nhất``: Lần cuối cùng điện thoại phát thông báo
+       `` Tín hiệu gần nhất``: Lần cuối cùng nhận thông tin vị trí xe đạp
 
-       `` Xử lý gần nhất``:
+       `` Xử lý gần nhất``: Thời điểm xử lý thông tin vị trí xe đạp (gần với thời điểm ``tín hiệu gần nhất``)
 
-       `` Vị trí cuối cùng``: Vị trí cuối cùng của xe đạp
+       `` Vị trí cuối cùng``: Vị trí cuối cùng của xe đạp được ghi nhận
 
-       `` Số lần đi trên vỉa hè liên tục``
+       `` Số lần đi trên vỉa hè liên tục``: Số lần phát hiện xe đang di chuyển trên vỉa hè liên tiếp. Giá trị reset về ``0`` khi vị trí xe đạp chuyển về ``Road`` hoặc sau khi phát thông báo trên điện thoại.
 
 Configuration
 -------------------
@@ -122,3 +122,6 @@ Configuration
    * - 4
      - Text thông báo demo
      - Hình ảnh demo
+   * - 5
+     - Lưu thông tin, ứng dụng điện thoại sẽ apply toàn bộ setting
+     - 

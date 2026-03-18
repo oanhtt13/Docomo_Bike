@@ -4,11 +4,11 @@ SRS Documentation
 Introduction
 --------------
 
-Phát triển hệ thống bao gồm AI Unit và Ứng dụng Android cho phép phát hiện vị trí xe đạp đang di chuyển, từ đó đứa ra cảnh báo người dùng, từ đó giúp nâng cao ý thức người sử dụng xe đạp.
+Phát triển hệ thống bao gồm AI Unit và Ứng dụng Android cho phép phát hiện vị trí xe đạp đang di chuyển, từ đó đứa ra cảnh báo người dùng, giúp nâng cao ý thức người sử dụng xe đạp.
 
 Hệ thống bao gồm:
 
-* Ứng dụng được phát triển trên thiết bị do khách hàng cung cấp.
+* Ứng dụng được phát triển trên thiết bị AI Unit do khách hàng cung cấp (RK1808).
 * Ứng dụng điện thoại Android.
 
 Scope
@@ -34,6 +34,7 @@ Out-of-Scope
 * Không hỗ trợ lunching app lên App Store.
 * Ứng dụng không hỗ trợ chạy nền.
 * Không optimize model AI đã phát triển tại phase 1.
+* Không hỗ trợ UI/UI customer.
 
 Overall Description
 ---------------------
@@ -41,13 +42,15 @@ Overall Description
 Contraints
 ^^^^^^^^^^^^^^
 
-* Phát triển trên thiết bị phần cứng thiết bị do khách hàng cung cấp.
+* Phát triển trên thiết bị phần cứng thiết bị do khách hàng cung cấp (RK1808).
 * Model phát triển phải convert sang định dạng RKNN để có thể implement được lên thiết bị phần cứng.
 
 Security
+***********
 
 * Phát triển tính năng xác thực ứng dụng: chỉ ứng dụng do HBLAB phát triển mới có thể nhận được bản tin từ AI Unit.
 * Ảnh được mã hóa ngay trên AI Unit trước khi lưu vào bộ nhớ. AI Unit chỉ có thể mã hóa, không thể tự đọc lại ảnh. Chỉ ứng dụng điện thoại nắm giữ thông tin giải mã mới đọc được ảnh.
+* Ảnh pull về PC từ AI Unit cần phải có ứng dụng chuyên biệt từ HBLAB để giải mã. Sau khi giải mã mới có thể xem được.
 
 Functional Requirements
 -----------------------------
@@ -94,15 +97,15 @@ FR-DA: Device Application
    * - 3. Config Ai Unit thông qua ứng dụng điện thoại
      - Mở giao diện ứng dụng điện thoại
 
-       Mở giao diện setup AI Unit
+       Mở giao diện setup AI Unit.
      - Giao diện cho phép setup AI Unit được mở ra. Cho phép setup tối thiểu:
 
-       Mode hoạt động của AI Unit (running/paused/stopped).
+       Mode hoạt động của AI Unit (running/stopped).
 
        Thời giữa 2 lần chụp ảnh liên tiếp (intervals).
    * - 4. Ứng dụng điện thoại lấy ảnh từ AI Unit
      - Sau khi phát hiện xe thay đổi vị trí (vỉa hè/lòng đường), ứng dụng điện thoại tự động lấy ảnh tương ứng từ AI Unit về.
-     - Lấy được ảnh overlay và ảnh raw.
+     - Lấy được ảnh overlay và ảnh raw lưu vào bộ nhớ local storage của điện thoại.
 
        Ảnh được mã hóa sẵn trên thiết bị trước khi lấy về, ứng dụng điện thoại giải mã sau khi nhận được.
 
@@ -122,7 +125,7 @@ FR-DA: Device Application
 
        Ứng dụng khởi động khi được cấp nguồn, hoạt động với chế độ phát hiện vị trí xe đạp.
 
-       Thời gian giữa 2 lần chụp ảnh liên tiếp: 0.5s.
+       Thời gian giữa 2 lần chụp ảnh liên tiếp: chạy đúng theo setup.
 
        Hoạt động với đúng model AI, lưu ảnh vào thư mục yêu cầu.
 
@@ -164,7 +167,10 @@ FR-LW-1: Location Detection
    * - Step
      - Desciption
      - Business Logic Acceptance Criteria
-   * - 1. Phát hiện vị trí xe đạp
+   * - 1. Phát hiện khu vự vỉa hè, lòng đường
+     - Sử dụng model AI xử lý hình ảnh thu được, từ đó khoanh vùng được khu vực vỉa hè, lòng đường
+     - mIoU theo phase 1
+   * - 2. Phát hiện vị trí xe đạp
      - Dựa trên hình ảnh thu được, đưa ra thông tin vị trí xe đạp đang di chuyển (làn đường/vỉa hè).
      - Ứng dụng cho phép phát hiện khu vực vỉa hè, lòng đường. Từ đó xác định được vị trí xe đạp đang di chuyển.
 
@@ -183,6 +189,8 @@ FR-LW-2: Warning Notification
      - Thông tin vị trí xe đạp được lấy từ FR-LW-1.
    * - Output
      - Ứng dụng phát âm báo "Xin hãy di chuyển chậm lại" bằng tiếng Nhật.
+
+       Ứng dụng hiển thị chuỗi kí tự cảnh báo lên màn hình điện thoại.
    * - Preconditions
      - Thiết bị được cấp nguồn đầy đủ.
 
@@ -194,6 +202,8 @@ FR-LW-2: Warning Notification
        Lưu log tại ứng dụng phần cứng, ứng dụng điện thoại.
 
        Phát âm thông báo thành công.
+
+       Hiển thị kí tự thành công
 
 .. list-table:: **Business Flow**
    :widths: 15 30 30
