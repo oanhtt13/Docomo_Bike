@@ -213,7 +213,7 @@ FR-LW-2: Warning Notification
      - Desciption
      - Business Logic Acceptance Criteria
    * - 1. Điện thoại đọc thông tin vị trí từ thiết bị
-     - Ứng dụng điện thoại định kỳ đọc thông tin vị trí xe đạp mới nhất từ thiết bị thông qua adb.
+     - Ứng dụng điện thoại định kỳ đọc thông tin vị trí xe đạp mới nhất từ thiết bị AI Unit thông qua adb.
      - Thông tin vị trí mới được đọc thành công theo đúng chu kỳ.
 
        Lưu log.
@@ -225,8 +225,21 @@ FR-LW-2: Warning Notification
        **Thì:**
 
        Điện thoại hiển thị cảnh báo trên màn hình và phát âm thanh cảnh báo theo nội dung đã cài đặt.
-     - Ứng dụng phát thông báo thành công
+     - Ứng dụng phát thông báo theo rule sau:
 
+       .. image:: img/2660.png
+       :alt: config
+       :width: 400px
+       :align: center
+
+       Phân tích ví dụ thực tế:
+
+       Khi bắt đầu khởi động, ứng dụng điện thoại sẽ phát âm ở 1.5 và 4.5.
+
+       Tại giây số 7.5 âm thanh không được kêu, do chúng tôi chỉ check 3 trạng thái cuối cùng gần với thời điểm phát thông báo nhất
+
+       Nếu tại giây số 4.5, trạng thái xe đạp là road (xanh lá), 3 trạng thái vị trí tiếp theo là vỉa hè (đỏ) thì tại giây số 6, điện thoại sẽ phát âm cảnh báo
+       
        Lưu log
 
 .. list-table:: **External Flow**
