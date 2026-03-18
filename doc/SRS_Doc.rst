@@ -228,9 +228,6 @@ FR-LW-2: Warning Notification
      - Ứng dụng phát thông báo theo rule sau:
 
        .. image:: img/warning_notice.png
-       :alt: config
-       :width: 400px
-       :align: center
 
        Phân tích ví dụ thực tế:
 
