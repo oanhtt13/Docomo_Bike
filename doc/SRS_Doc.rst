@@ -156,11 +156,12 @@ FR-LW-1: Location Detection
      - Thiết bị được cấp nguồn đầy đủ.
    * - Postconditions
 
-       Lưu log chương trình.
+     - Lưu log chương trình.
 
        Thông tin ảnh overlay.
 
        Thông tin ảnh raw.
+
 
 .. list-table:: **Business Flow**
    :widths: 15 30 30
@@ -201,7 +202,7 @@ FR-LW-2: Warning Notification
        Ứng dụng điện thoại được mở sẵn.
    * - Postconditions
 
-       Lưu log tại ứng dụng phần cứng, ứng dụng điện thoại.
+     - Lưu log tại ứng dụng phần cứng, ứng dụng điện thoại.
 
        Phát âm thông báo thành công.
 
