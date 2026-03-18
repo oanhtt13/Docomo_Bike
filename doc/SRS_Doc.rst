@@ -383,8 +383,9 @@ FR-CC: Connection Checking
    * - Preconditions
      - Thiết bị được cấp nguồn đầy đủ.
 
-     Required: AI Unit phải có cổng USB Type C thì mới kết nối được với Android Type C cho phép lấy thông tin qua ADB Interface.
-     (Nếu muốn hỗ trợ cổng khác, AI unit cũng cần phải hỗ trợ cổng khác).
+       Required: AI Unit phải có cổng USB Type C thì mới kết nối được với Android Type C cho phép lấy thông tin qua ADB Interface.
+
+       (Nếu muốn hỗ trợ cổng khác, AI unit cũng cần phải hỗ trợ cổng khác).
    * - Postconditions
      - Lưu log chương trình.
 
