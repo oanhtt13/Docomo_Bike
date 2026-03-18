@@ -139,13 +139,15 @@ FR-LW-1: Location Detection
 *******************************
 
 .. list-table:: **FR-LW-1**
-   :widths: 15 10
+   :widths: 15 30
    :header-rows: 1
 
    * - Content
      - Detail
    * - Description
-     - Tính năng cho phép sử dụng Camera cho phép thu thập hình ảnh trong quá trình User sử dụng xe đạp. Sau đó sử dụng model AI phân tích hình ảnh thu được, từ đó cho phép phát hiện vị trí xe đạp đang di chuyển (vỉa hè/lòng đường).
+     - Tính năng cho phép sử dụng Camera cho phép thu thập hình ảnh trong quá trình User sử dụng xe đạp.
+
+       Sau đó sử dụng model AI phân tích hình ảnh thu được, từ đó cho phép phát hiện vị trí xe đạp đang di chuyển (vỉa hè/lòng đường).
    * - Input
      - Ảnh thu thập từ Camera.
    * - Output

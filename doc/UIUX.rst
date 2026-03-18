@@ -1,4 +1,4 @@
-UX/UI Design
+UI Design
 ================
 
 Connection and Location Status
@@ -115,7 +115,7 @@ Configuration
        Hiragino Kaku Gothic (ヒラギノ角ゴ)
    * - 2
      - Điều chỉnh size text thông báo
-     - Nhập liệu dạng lựa chọn
+     - Nhập liệu dạng điền thông tin
    * - 3
      - Thời gian hiển thị text thông báo
      - Unit: ``giây``
