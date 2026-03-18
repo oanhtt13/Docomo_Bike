@@ -227,7 +227,7 @@ FR-LW-2: Warning Notification
        Điện thoại hiển thị cảnh báo trên màn hình và phát âm thanh cảnh báo theo nội dung đã cài đặt.
      - Ứng dụng phát thông báo theo rule sau:
 
-       .. image:: img/2660.png
+       .. image:: img/warning_notice.png
        :alt: config
        :width: 400px
        :align: center
@@ -239,7 +239,7 @@ FR-LW-2: Warning Notification
        Tại giây số 7.5 âm thanh không được kêu, do chúng tôi chỉ check 3 trạng thái cuối cùng gần với thời điểm phát thông báo nhất
 
        Nếu tại giây số 4.5, trạng thái xe đạp là road (xanh lá), 3 trạng thái vị trí tiếp theo là vỉa hè (đỏ) thì tại giây số 6, điện thoại sẽ phát âm cảnh báo
-       
+
        Lưu log
 
 .. list-table:: **External Flow**
@@ -254,10 +254,10 @@ FR-LW-2: Warning Notification
      - Mở giao diện thành công
    * - 2. Update thông tin ``số lần liên tiếp sẽ phát cảnh báo``
      - Điền thông tin số lần phát hiện xe đang đi trên vỉa hè liên tiếp để ứng dụng phát cảnh báo.
-     - Thời gian giữa 2 lần phát thông báo sẽ là: ``thời gian giữa 2 lần thông báo gần nhất`` x ``số lần phát hiện liên tiếp``
+     - Thời gian giữa 2 lần phát thông báo sẽ là: ``thời gian giữa 2 lần phát hiện vị trí gần nhất`` x ``số lần phát hiện liên tiếp``
    * - 3. Update thông tin ``thời gian giữa hai lần phát thông báo liên tiếp``
      - Điền thông tin thời gian giữa 2 lần phát thông báo liên tiếp
-     - Khoảng thời gian này không được nhỏ hơn (``thời gian giữa 2 lần thông báo gần nhất`` x ``số lần phát hiện liên tiếp``). Nếu không sẽ báo lỗi.
+     - Khoảng thời gian này không được nhỏ hơn (``thời gian giữa 2 lần phát hiện vị trí gần nhất`` x ``số lần phát hiện liên tiếp``). Nếu không sẽ báo lỗi, không cho lưu setting.
    * - 4. Update nội dung hiển thị cảnh báo
      - Điền nội dung văn bản hiển thị trên màn hình khi phát cảnh báo.
      - Cho phép nhập nhiều dòng. Nội dung hiển thị đúng theo thiết lập.
@@ -266,7 +266,7 @@ FR-LW-2: Warning Notification
      - Hiển thị preview ngay trên giao diện theo đúng kiểu chữ và cỡ chữ đã chọn.
    * - 6. Update thời gian hiển thị cảnh báo trên màn hình
      - Điền thời gian (giây) cảnh báo hiển thị trên màn hình sau mỗi lần phát.
-     - Thời gian hiển thị phải nhỏ hơn ``thời gian giữa hai lần phát thông báo liên tiếp``. Nếu không sẽ báo lỗi.
+     - Thời gian hiển thị phải nhỏ hơn ``thời gian giữa hai lần phát thông báo liên tiếp``. Nếu không sẽ báo lỗi, không cho setting.
 
 
 FR-CL: Clear Sensitive Infomation
@@ -297,7 +297,7 @@ FR-CL-1: Image Handling
 
        Thiết bị hỗ trợ dây USB Type C, cho phép lấy thông tin qua ADB Interface.
 
-     (Nếu muốn hỗ trợ cổng khác, thiết bị cũng cần phải hỗ trợ).
+       (Nếu muốn hỗ trợ cổng khác, thiết bị cũng cần phải hỗ trợ).
    * - Postconditions
      - Lưu log chương trình.
 
@@ -334,17 +334,17 @@ FR-CL-2: Clear Sensitive Info
    * - Description
      - Cho phép ứng dụng điện thoại xóa/làm mờ những thông tin nhạy cảm khỏi ảnh (mặt người đi đường) để tránh vi phạm luật tại Nhật.
    * - Input
-     - Ảnh nhận được từ thiết bị AI Unit đã được lấy về ứng dụng điện thoại.
+     - Ảnh đã được mã hóa nhận được từ thiết bị AI Unit đã được ứng dụng điện thoại lấy về.
    * - Output
-     - Ảnh chứa khuôn mặt người đi đường đã được làm mờ trên ứng dụng điện thoại
+     - Ảnh chứa khuôn mặt người đi đường đã được làm mờ trên ứng dụng điện thoại.
    * - Trigger
-     - Ngay sau khi ứng dụng điện thoại lấy ảnh từ device AI Unit về
+     - Ngay sau khi ứng dụng điện thoại lấy ảnh từ device AI Unit về.
    * - Preconditions
      - Nhận được ảnh từ thiết bị.
    * - Postconditions
      - Lưu log chương trình.
 
-       Ảnh đã được làm mờ lưu vào bộ nhớ.
+       Ảnh đã được làm mờ lưu vào bộ nhớ local.
 
 .. list-table:: **Business Flow**
    :widths: 15 30 30
@@ -358,7 +358,12 @@ FR-CL-2: Clear Sensitive Info
      - Phát hiện tất cả các khuôn mặt trong ảnh
    * - 2. Xóa/làm mờ khuôn mặt
      - Làm mờ khuôn mặt
-     - Cần làm mờ khuôn mặt hết mức có thể
+     - Cần làm mờ khuôn mặt hết mức có thể.
+   * - 3. Lưu ảnh
+     - Lưu các ảnh đã được làm mờ khuôn mặt
+     - Lưu ảnh raw và ảnh overlay tại bộ nhớ local.
+
+       Không lưu tại gallery của điện thoại.
 
 FR-CC: Connection Checking
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -405,6 +410,8 @@ FR-CC: Connection Checking
 Non-Function Requirement
 -----------------------------
 
+Follow theo phase 1:
+
 * MIoU: 70%
 * Accuracy: 70%
 
@@ -427,8 +434,6 @@ Config file
        ``paused`` : ứng dụng tạm dừng, không chụp ảnh
 
        ``running`` : ứng dụng hoạt động bình thường
-
-       ``stopped`` : ứng dụng dừng hẳn và thoát chương trình
    * - ``processing_mode``
      - Chọn chế độ hoạt động
      - Datatype: String
