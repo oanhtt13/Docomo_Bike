@@ -4,7 +4,7 @@ UI Design
 Connection and Location Status
 -----------------------------------
 
-.. image:: img/2733.png
+.. image:: img/2804.png
    :alt: connecttion
    :width: 400px
    :align: center 
@@ -45,7 +45,17 @@ Connection and Location Status
 Configuration
 -------------------
 
-.. image:: img/2602.png
+.. image:: img/2859.png
+   :alt: config
+   :width: 400px
+   :align: center
+
+.. image:: img/2880.png
+   :alt: config
+   :width: 400px
+   :align: center
+
+.. image:: img/2902.png
    :alt: config
    :width: 400px
    :align: center
@@ -85,20 +95,7 @@ Configuration
      - Nội dung dạng text, tùy người dùng nhập vào
 
        Limit: 30 kí tự fullwitdh
-
-.. image:: img/2660.png
-   :alt: config
-   :width: 400px
-   :align: center
-
-.. list-table:: **Status**
-   :widths: 15 30 30
-   :header-rows: 1
-
-   * - Number
-     - Desciption
-     - Value
-   * - 1
+   * - 7
      - Điều chỉnh font chữ cho text cảnh báo
      - Nhập liệu dạng lựa chọn. Các font đang support:
 
@@ -113,16 +110,19 @@ Configuration
        Yu Mincho (遊明朝)
 
        Hiragino Kaku Gothic (ヒラギノ角ゴ)
-   * - 2
+   * - 8
      - Điều chỉnh size text thông báo
      - Nhập liệu dạng điền thông tin
-   * - 3
+   * - 9
      - Thời gian hiển thị text thông báo
      - Unit: ``giây``
-   * - 4
+   * - 10
+     - Thay đổi màu phông chữ
+     - Nhập liệu dạng lựa chọn
+   * - 11
      - Text thông báo demo
      - Hình ảnh demo
-   * - 5
+   * - 12
      - Lưu thông tin, ứng dụng điện thoại sẽ apply toàn bộ setting
      - 
 
