@@ -125,3 +125,11 @@ Configuration
    * - 5
      - Lưu thông tin, ứng dụng điện thoại sẽ apply toàn bộ setting
      - 
+
+Error Notification
+-----------------------
+
+.. image:: img/2705.png
+   :alt: config
+   :width: 400px
+   :align: center

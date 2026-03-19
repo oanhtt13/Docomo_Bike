@@ -234,6 +234,16 @@ FR-LW-2: Warning Notification
 
        Phân tích ví dụ thực tế:
 
+       **Setup ban đầu:**
+
+       Interval: 0.5 giây
+       
+       Số lần phát hiện liên tiếp: 3 lần
+       
+       Khoảng cách giữa 2 lần cảnh báo: 3 giây
+
+       **Kết quả chạy:**
+
        Khi bắt đầu khởi động, ứng dụng điện thoại sẽ phát âm ở 1.5 và 4.5.
 
        Tại giây số 7.5 âm thanh không được kêu, do chúng tôi chỉ check 3 trạng thái cuối cùng gần với thời điểm phát thông báo nhất
