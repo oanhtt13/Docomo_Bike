@@ -1,0 +1,815 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SRS Documentation &mdash; Docomo Bike 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/lang.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="HLD_Doc.html" />
+    <link rel="prev" title="Wellcome to Docomo Bile Project!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Docomo Bike
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SRS Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scope">Scope</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#in-scope">In-Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#out-of-scope">Out-of-Scope</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#overall-description">Overall Description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#contraints">Contraints</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#security">Security</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functional-requirements">Functional Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fr-da-device-application">FR-DA: Device Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fr-lw-location-warning">FR-LW: Location Warning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fr-lw-1-location-detection">FR-LW-1: Location Detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fr-lw-2-warning-notification">FR-LW-2: Warning Notification</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#fr-cl-clear-sensitive-infomation">FR-CL: Clear Sensitive Infomation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fr-cl-1-image-handling">FR-CL-1: Image Handling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fr-cl-2-clear-sensitive-info">FR-CL-2: Clear Sensitive Info</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#fr-cc-connection-checking">FR-CC: Connection Checking</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#non-function-requirement">Non-Function Requirement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#appendix">Appendix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="UIUX.html">UI Design</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Docomo Bike</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">SRS Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/SRS_Doc.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="srs-documentation">
+<h1>SRS Documentation<a class="headerlink" href="#srs-documentation" title="Link to this heading"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>Phát triển hệ thống bao gồm AI Unit và Ứng dụng Android cho phép phát hiện vị trí xe đạp đang di chuyển, từ đó đứa ra cảnh báo người dùng, giúp nâng cao ý thức người sử dụng xe đạp.</p>
+<p>Hệ thống bao gồm:</p>
+<ul class="simple">
+<li><p>Ứng dụng được phát triển trên thiết bị AI Unit do khách hàng cung cấp (RK1808).</p></li>
+<li><p>Ứng dụng điện thoại Android.</p></li>
+</ul>
+</section>
+<section id="scope">
+<h2>Scope<a class="headerlink" href="#scope" title="Link to this heading"></a></h2>
+<section id="in-scope">
+<h3>In-Scope<a class="headerlink" href="#in-scope" title="Link to this heading"></a></h3>
+<p>Phát triển ứng dụng trên thiết bị là điện thoại, cho phép phát cảnh báo tới người dùng khi phát hiện người dùng đang di chuyển trên vỉa hè.
+Phase 2 tập trung phát triển ứng dụng Android và tích hợp với AI Unit đã có.</p>
+<p>Các tính năng chính:</p>
+<ul class="simple">
+<li><p>Xác định vị trí xe đang di chuyển, phát cảnh báo đi chậm.</p></li>
+<li><p>Kiểm tra connect giữa thiết bị và điện thoại</p></li>
+<li><p>Ứng dụng điện thoại tự động lấy ảnh từ AI Unit khi phát hiện xe thay đổi vị trí (vỉa hè/lòng đường).</p></li>
+<li><p>Xóa thông tin nhạy cảm trong ảnh.</p></li>
+<li><p>Ảnh được mã hóa trên AI Unit, chỉ ứng dụng điện thoại mới có thể đọc được.</p></li>
+</ul>
+</section>
+<section id="out-of-scope">
+<h3>Out-of-Scope<a class="headerlink" href="#out-of-scope" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Không hỗ trợ ứng dụng Ios.</p></li>
+<li><p>Không hỗ trợ lunching app lên App Store.</p></li>
+<li><p>Ứng dụng không hỗ trợ chạy nền.</p></li>
+<li><p>Không optimize model AI đã phát triển tại phase 1.</p></li>
+<li><p>Không hỗ trợ UI/UI customer.</p></li>
+</ul>
+</section>
+</section>
+<section id="overall-description">
+<h2>Overall Description<a class="headerlink" href="#overall-description" title="Link to this heading"></a></h2>
+<section id="contraints">
+<h3>Contraints<a class="headerlink" href="#contraints" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Phát triển trên thiết bị phần cứng thiết bị do khách hàng cung cấp (RK1808).</p></li>
+<li><p>Model phát triển phải convert sang định dạng RKNN để có thể implement được lên thiết bị phần cứng.</p></li>
+</ul>
+<section id="security">
+<h4>Security<a class="headerlink" href="#security" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Phát triển tính năng xác thực ứng dụng: chỉ ứng dụng do HBLAB phát triển mới có thể nhận được bản tin từ AI Unit.</p></li>
+<li><p>Ảnh được mã hóa ngay trên AI Unit trước khi lưu vào bộ nhớ. AI Unit chỉ có thể mã hóa, không thể tự đọc lại ảnh. Chỉ ứng dụng điện thoại nắm giữ thông tin giải mã mới đọc được ảnh.</p></li>
+<li><p>Ảnh pull về PC từ AI Unit cần phải có ứng dụng chuyên biệt từ HBLAB để giải mã. Sau khi giải mã mới có thể xem được.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="functional-requirements">
+<h2>Functional Requirements<a class="headerlink" href="#functional-requirements" title="Link to this heading"></a></h2>
+<section id="fr-da-device-application">
+<h3>FR-DA: Device Application<a class="headerlink" href="#fr-da-device-application" title="Link to this heading"></a></h3>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text"><strong>FR-DA</strong></span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 60.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Content</p></th>
+<th class="head"><p>Detail</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>Phát triển ứng dụng trên thiết bị phần cứng do khách hàng cung cấp.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Input</p></td>
+<td><p>Ảnh do camera thu được.</p></td>
+</tr>
+<tr class="row-even"><td><p>Output</p></td>
+<td><p>Log ứng dụng.</p>
+<p>Ảnh được mã hóa lưu vào bộ nhớ thiết bị, sẵn sàng để ứng dụng điện thoại lấy về.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Preconditions</p></td>
+<td><p>Thiết bị được cấp nguồn đầy đủ.</p>
+<p>Bộ nhớ trong chưa đầy.</p>
+<p>Thiết bị được liên kết với camera.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Postconditions</p></td>
+<td><p>Lưu log chương trình.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text"><strong>Business Flow</strong></span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Desciption</p></th>
+<th class="head"><p>Business Logic Acceptance Criteria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>Khởi động chương trình</p></li>
+</ol>
+</td>
+<td><p>Cấp nguồn cho thiết bị.</p></td>
+<td><p>Thiết bị tự động chạy ngay khi được cấp nguồn.</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>Connect AI Unit với ứng dụng điện thoại</p></li>
+</ol>
+</td>
+<td><p>Kết nối cổng USB type C của AI Unit với ứng dụng điện thoại.</p></td>
+<td><p>Kết nối thành công</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="3">
+<li><p>Config Ai Unit thông qua ứng dụng điện thoại</p></li>
+</ol>
+</td>
+<td><p>Mở giao diện ứng dụng điện thoại</p>
+<p>Mở giao diện setup AI Unit.</p>
+</td>
+<td><p>Giao diện cho phép setup AI Unit được mở ra. Cho phép setup tối thiểu:</p>
+<p>Mode hoạt động của AI Unit (running/stopped).</p>
+<p>Thời giữa 2 lần chụp ảnh liên tiếp (intervals).</p>
+</td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="4">
+<li><p>Ứng dụng điện thoại lấy ảnh từ AI Unit</p></li>
+</ol>
+</td>
+<td><p>Sau khi phát hiện xe thay đổi vị trí (vỉa hè/lòng đường), ứng dụng điện thoại tự động lấy ảnh tương ứng từ AI Unit về.</p></td>
+<td><p>Lấy được ảnh overlay và ảnh raw lưu vào bộ nhớ local storage của điện thoại.</p>
+<p>Ảnh được mã hóa sẵn trên thiết bị trước khi lấy về, ứng dụng điện thoại giải mã sau khi nhận được.</p>
+<p>Lưu log</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-text"><strong>External Flow</strong></span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Desciption</p></th>
+<th class="head"><p>Business Logic Acceptance Criteria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>Update file config</p></li>
+</ol>
+</td>
+<td><p>Ứng dụng cho phép update file config bằng PC.</p></td>
+<td><p>File config cho phép điều chỉnh thông số của ứng dụng trên thiết bị phần cứng. Tham khảo phụ lục 1.</p>
+<p>Ứng dụng khởi động khi được cấp nguồn, hoạt động với chế độ phát hiện vị trí xe đạp.</p>
+<p>Thời gian giữa 2 lần chụp ảnh liên tiếp: chạy đúng theo setup.</p>
+<p>Hoạt động với đúng model AI, lưu ảnh vào thư mục yêu cầu.</p>
+<p>File config có thể được update từ PC thông qua ADB Interface.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fr-lw-location-warning">
+<h3>FR-LW: Location Warning<a class="headerlink" href="#fr-lw-location-warning" title="Link to this heading"></a></h3>
+<section id="fr-lw-1-location-detection">
+<h4>FR-LW-1: Location Detection<a class="headerlink" href="#fr-lw-1-location-detection" title="Link to this heading"></a></h4>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text"><strong>FR-LW-1</strong></span><a class="headerlink" href="#id4" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Content</p></th>
+<th class="head"><p>Detail</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>Tính năng cho phép sử dụng Camera cho phép thu thập hình ảnh trong quá trình User sử dụng xe đạp.</p>
+<p>Sau đó sử dụng model AI phân tích hình ảnh thu được, từ đó cho phép phát hiện vị trí xe đạp đang di chuyển (vỉa hè/lòng đường).</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Input</p></td>
+<td><p>Ảnh thu thập từ Camera.</p></td>
+</tr>
+<tr class="row-even"><td><p>Output</p></td>
+<td><p>AI unit trả về thông tin vị trí xe đang di chuyển: vỉa hè/lòng đường.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Preconditions</p></td>
+<td><p>Thiết bị được cấp nguồn đầy đủ.</p></td>
+</tr>
+<tr class="row-even"><td><p>Postconditions</p></td>
+<td><p>Lưu log chương trình.</p>
+<p>Thông tin ảnh overlay.</p>
+<p>Thông tin ảnh raw.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id5">
+<caption><span class="caption-text"><strong>Business Flow</strong></span><a class="headerlink" href="#id5" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Desciption</p></th>
+<th class="head"><p>Business Logic Acceptance Criteria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>Phát hiện khu vự vỉa hè, lòng đường</p></li>
+</ol>
+</td>
+<td><p>Sử dụng model AI xử lý hình ảnh thu được, từ đó khoanh vùng được khu vực vỉa hè, lòng đường</p></td>
+<td><p>mIoU theo phase 1</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>Phát hiện vị trí xe đạp</p></li>
+</ol>
+</td>
+<td><p>Dựa trên hình ảnh thu được, đưa ra thông tin vị trí xe đạp đang di chuyển (làn đường/vỉa hè).</p></td>
+<td><p>Ứng dụng cho phép phát hiện khu vực vỉa hè, lòng đường. Từ đó xác định được vị trí xe đạp đang di chuyển.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fr-lw-2-warning-notification">
+<h4>FR-LW-2: Warning Notification<a class="headerlink" href="#fr-lw-2-warning-notification" title="Link to this heading"></a></h4>
+<table class="docutils align-default" id="id6">
+<caption><span class="caption-text"><strong>FR-LW-2</strong></span><a class="headerlink" href="#id6" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 60.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Content</p></th>
+<th class="head"><p>Detail</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>Ứng dụng điện thoại định kỳ đọc thông tin vị trí xe đạp từ AI Unit thông qua ADB interface. Ứng dụng điện thoại sẽ phát cảnh báo sau khi phát hiện xe đang di chuyển trên vỉa hè (Y) lần liên tiếp.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Input</p></td>
+<td><p>Thông tin vị trí xe đạp được lấy từ FR-LW-1.</p></td>
+</tr>
+<tr class="row-even"><td><p>Output</p></td>
+<td><p>Ứng dụng phát âm báo “Xin hãy di chuyển chậm lại” bằng tiếng Nhật.</p>
+<p>Ứng dụng hiển thị chuỗi kí tự cảnh báo lên màn hình điện thoại.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Preconditions</p></td>
+<td><p>Thiết bị được cấp nguồn đầy đủ.</p>
+<p>Thiết bị phần cứng và ứng dụng điện thoại phải được kết nối.</p>
+<p>Ứng dụng điện thoại được mở sẵn.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Postconditions</p></td>
+<td><p>Lưu log tại ứng dụng phần cứng, ứng dụng điện thoại.</p>
+<p>Phát âm thông báo thành công.</p>
+<p>Hiển thị kí tự thành công</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id7">
+<caption><span class="caption-text"><strong>Business Flow</strong></span><a class="headerlink" href="#id7" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Desciption</p></th>
+<th class="head"><p>Business Logic Acceptance Criteria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>Điện thoại đọc thông tin vị trí từ thiết bị</p></li>
+</ol>
+</td>
+<td><p>Ứng dụng điện thoại định kỳ đọc thông tin vị trí xe đạp mới nhất từ thiết bị AI Unit thông qua adb.</p></td>
+<td><p>Thông tin vị trí mới được đọc thành công theo đúng chu kỳ.</p>
+<p>Lưu log.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>Thiết bị phát thông báo</p></li>
+</ol>
+</td>
+<td><p><strong>Nếu:</strong></p>
+<p>Điện thoại nhận được thông tin xe đạp đang di chuyển trên vỉa hè.</p>
+<p><strong>Thì:</strong></p>
+<p>Điện thoại hiển thị cảnh báo trên màn hình và phát âm thanh cảnh báo theo nội dung đã cài đặt.</p>
+</td>
+<td><p>Ứng dụng phát thông báo theo rule sau:</p>
+<img alt="_images/warning_notice.png" src="_images/warning_notice.png" />
+<p>Phân tích ví dụ thực tế:</p>
+<p><strong>Setup ban đầu:</strong></p>
+<p>Interval: 0.5 giây</p>
+<p>Số lần phát hiện liên tiếp: 3 lần</p>
+<p>Khoảng cách giữa 2 lần cảnh báo: 3 giây</p>
+<p><strong>Kết quả chạy:</strong></p>
+<p>Khi bắt đầu khởi động, ứng dụng điện thoại sẽ phát âm ở 1.5 và 4.5.</p>
+<p>Tại giây số 7.5 âm thanh không được kêu, do chúng tôi chỉ check 3 trạng thái cuối cùng gần với thời điểm phát thông báo nhất</p>
+<p>Nếu tại giây số 4.5, trạng thái xe đạp là road (xanh lá), 3 trạng thái vị trí tiếp theo là vỉa hè (đỏ) thì tại giây số 6, điện thoại sẽ phát âm cảnh báo</p>
+<p>Lưu log</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id8">
+<caption><span class="caption-text"><strong>External Flow</strong></span><a class="headerlink" href="#id8" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Desciption</p></th>
+<th class="head"><p>Business Logic Acceptance Criteria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>Update config cho phát cảnh báo</p></li>
+</ol>
+</td>
+<td><p>Mở giao diện setup ứng dụng</p></td>
+<td><p>Mở giao diện thành công</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>Update thông tin <code class="docutils literal notranslate"><span class="pre">số</span> <span class="pre">lần</span> <span class="pre">liên</span> <span class="pre">tiếp</span> <span class="pre">sẽ</span> <span class="pre">phát</span> <span class="pre">cảnh</span> <span class="pre">báo</span></code></p></li>
+</ol>
+</td>
+<td><p>Điền thông tin số lần phát hiện xe đang đi trên vỉa hè liên tiếp để ứng dụng phát cảnh báo.</p></td>
+<td><p>Thời gian giữa 2 lần phát thông báo sẽ là: <code class="docutils literal notranslate"><span class="pre">thời</span> <span class="pre">gian</span> <span class="pre">giữa</span> <span class="pre">2</span> <span class="pre">lần</span> <span class="pre">phát</span> <span class="pre">hiện</span> <span class="pre">vị</span> <span class="pre">trí</span> <span class="pre">gần</span> <span class="pre">nhất</span></code> x <code class="docutils literal notranslate"><span class="pre">số</span> <span class="pre">lần</span> <span class="pre">phát</span> <span class="pre">hiện</span> <span class="pre">liên</span> <span class="pre">tiếp</span></code></p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="3">
+<li><p>Update thông tin <code class="docutils literal notranslate"><span class="pre">thời</span> <span class="pre">gian</span> <span class="pre">giữa</span> <span class="pre">hai</span> <span class="pre">lần</span> <span class="pre">phát</span> <span class="pre">thông</span> <span class="pre">báo</span> <span class="pre">liên</span> <span class="pre">tiếp</span></code></p></li>
+</ol>
+</td>
+<td><p>Điền thông tin thời gian giữa 2 lần phát thông báo liên tiếp</p></td>
+<td><p>Khoảng thời gian này không được nhỏ hơn (<code class="docutils literal notranslate"><span class="pre">thời</span> <span class="pre">gian</span> <span class="pre">giữa</span> <span class="pre">2</span> <span class="pre">lần</span> <span class="pre">phát</span> <span class="pre">hiện</span> <span class="pre">vị</span> <span class="pre">trí</span> <span class="pre">gần</span> <span class="pre">nhất</span></code> x <code class="docutils literal notranslate"><span class="pre">số</span> <span class="pre">lần</span> <span class="pre">phát</span> <span class="pre">hiện</span> <span class="pre">liên</span> <span class="pre">tiếp</span></code>). Nếu không sẽ báo lỗi, không cho lưu setting.</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="4">
+<li><p>Update nội dung hiển thị cảnh báo</p></li>
+</ol>
+</td>
+<td><p>Điền nội dung văn bản hiển thị trên màn hình khi phát cảnh báo.</p></td>
+<td><p>Cho phép nhập nhiều dòng. Nội dung hiển thị đúng theo thiết lập.</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="5">
+<li><p>Update kiểu chữ và cỡ chữ cho cảnh báo</p></li>
+</ol>
+</td>
+<td><p>Chọn kiểu chữ từ danh sách có sẵn. Điền cỡ chữ mong muốn.</p></td>
+<td><p>Hiển thị preview ngay trên giao diện theo đúng kiểu chữ và cỡ chữ đã chọn.</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="6">
+<li><p>Update thời gian hiển thị cảnh báo trên màn hình</p></li>
+</ol>
+</td>
+<td><p>Điền thời gian (giây) cảnh báo hiển thị trên màn hình sau mỗi lần phát.</p></td>
+<td><p>Thời gian hiển thị phải nhỏ hơn <code class="docutils literal notranslate"><span class="pre">thời</span> <span class="pre">gian</span> <span class="pre">giữa</span> <span class="pre">hai</span> <span class="pre">lần</span> <span class="pre">phát</span> <span class="pre">thông</span> <span class="pre">báo</span> <span class="pre">liên</span> <span class="pre">tiếp</span></code>. Nếu không sẽ báo lỗi, không cho setting.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="fr-cl-clear-sensitive-infomation">
+<h3>FR-CL: Clear Sensitive Infomation<a class="headerlink" href="#fr-cl-clear-sensitive-infomation" title="Link to this heading"></a></h3>
+<section id="fr-cl-1-image-handling">
+<h4>FR-CL-1: Image Handling<a class="headerlink" href="#fr-cl-1-image-handling" title="Link to this heading"></a></h4>
+<table class="docutils align-default" id="id9">
+<caption><span class="caption-text"><strong>FR-CL-1</strong></span><a class="headerlink" href="#id9" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 60.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Content</p></th>
+<th class="head"><p>Detail</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>Khi xe thay đổi vị trí (vỉa hè/lòng đường), ứng dụng điện thoại tự động lấy ảnh tương ứng từ AI Unit về thông qua ADB interface.</p>
+<p>Ứng dụng Android sẽ thực hiện làm mờ khuôn mặt trước khi lưu trữ.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Input</p></td>
+<td><p>Ảnh thu thập từ camera thiết bị.</p></td>
+</tr>
+<tr class="row-even"><td><p>Output</p></td>
+<td><p>Ứng dụng Android thực hiện làm mờ khuôn mặt trước khi lưu trữ ảnh.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Trigger</p></td>
+<td><p>Ngay sau khi phát hiện xe thay đổi vị trí (vỉa hè/lòng đường).</p></td>
+</tr>
+<tr class="row-even"><td><p>Preconditions</p></td>
+<td><p>Thiết bị được cấp nguồn đầy đủ.</p>
+<p>Thiết bị hỗ trợ dây USB Type C, cho phép lấy thông tin qua ADB Interface.</p>
+<p>(Nếu muốn hỗ trợ cổng khác, thiết bị cũng cần phải hỗ trợ).</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Postconditions</p></td>
+<td><p>Lưu log chương trình.</p>
+<p>Ảnh đã được làm mờ lưu vào bộ nhớ.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id10">
+<caption><span class="caption-text"><strong>Business Flow</strong></span><a class="headerlink" href="#id10" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Desciption</p></th>
+<th class="head"><p>Business Logic Acceptance Criteria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>Ứng dụng điện thoại lấy ảnh từ thiết bị</p></li>
+</ol>
+</td>
+<td><p>Khi phát hiện xe thay đổi vị trí, ứng dụng điện thoại lấy ảnh tương ứng (ảnh raw, ảnh overlay) từ AI Unit về.</p></td>
+<td><p>Lấy được tất cả các ảnh (ảnh raw, ảnh overlay sau xử lý).</p>
+<p>Ảnh được mã hóa sẵn trên thiết bị, chỉ ứng dụng HBLab tự phát triển mới có thể đọc được ảnh.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Điện thoại nhận ảnh</p></td>
+<td><p>Ứng dụng điện thoại tiếp nhập ảnh, lưu vào kho lưu trữ</p></td>
+<td><p>Lưu ảnh thành công</p>
+<p>Gửi thông báo về cho ứng dụng</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fr-cl-2-clear-sensitive-info">
+<h4>FR-CL-2: Clear Sensitive Info<a class="headerlink" href="#fr-cl-2-clear-sensitive-info" title="Link to this heading"></a></h4>
+<table class="docutils align-default" id="id11">
+<caption><span class="caption-text"><strong>FR-CL-1</strong></span><a class="headerlink" href="#id11" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 60.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Content</p></th>
+<th class="head"><p>Detail</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>Cho phép ứng dụng điện thoại xóa/làm mờ những thông tin nhạy cảm khỏi ảnh (mặt người đi đường) để tránh vi phạm luật tại Nhật.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Input</p></td>
+<td><p>Ảnh đã được mã hóa nhận được từ thiết bị AI Unit đã được ứng dụng điện thoại lấy về.</p></td>
+</tr>
+<tr class="row-even"><td><p>Output</p></td>
+<td><p>Ảnh chứa khuôn mặt người đi đường đã được làm mờ trên ứng dụng điện thoại.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Trigger</p></td>
+<td><p>Ngay sau khi ứng dụng điện thoại lấy ảnh từ device AI Unit về.</p></td>
+</tr>
+<tr class="row-even"><td><p>Preconditions</p></td>
+<td><p>Nhận được ảnh từ thiết bị.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Postconditions</p></td>
+<td><p>Lưu log chương trình.</p>
+<p>Ảnh đã được làm mờ lưu vào bộ nhớ local.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id12">
+<caption><span class="caption-text"><strong>Business Flow</strong></span><a class="headerlink" href="#id12" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Desciption</p></th>
+<th class="head"><p>Business Logic Acceptance Criteria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>Phát hiện khuôn mặt trong ảnh</p></li>
+</ol>
+</td>
+<td><p>Phát hiện khuôn mặt người đi đường trong ứng dụng Android</p></td>
+<td><p>Phát hiện tất cả các khuôn mặt trong ảnh</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>Xóa/làm mờ khuôn mặt</p></li>
+</ol>
+</td>
+<td><p>Làm mờ khuôn mặt</p></td>
+<td><p>Cần làm mờ khuôn mặt hết mức có thể.</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="3">
+<li><p>Lưu ảnh</p></li>
+</ol>
+</td>
+<td><p>Lưu các ảnh đã được làm mờ khuôn mặt</p></td>
+<td><p>Lưu ảnh raw và ảnh overlay tại bộ nhớ local.</p>
+<p>Không lưu tại gallery của điện thoại.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="fr-cc-connection-checking">
+<h3>FR-CC: Connection Checking<a class="headerlink" href="#fr-cc-connection-checking" title="Link to this heading"></a></h3>
+<table class="docutils align-default" id="id13">
+<caption><span class="caption-text"><strong>FR-CC</strong></span><a class="headerlink" href="#id13" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 60.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Content</p></th>
+<th class="head"><p>Detail</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>Cho phép kiểm tra, thông báo trạng thái connect giữa thiết bị và điện thoại</p></td>
+</tr>
+<tr class="row-odd"><td><p>Input</p></td>
+<td><p>Thông tin connect</p></td>
+</tr>
+<tr class="row-even"><td><p>Output</p></td>
+<td><p>Thông báo connect/disconnect.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Preconditions</p></td>
+<td><p>Thiết bị được cấp nguồn đầy đủ.</p>
+<p>Required: AI Unit phải có cổng USB Type C thì mới kết nối được với Android Type C cho phép lấy thông tin qua ADB Interface.</p>
+<p>(Nếu muốn hỗ trợ cổng khác, AI unit cũng cần phải hỗ trợ cổng khác).</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Postconditions</p></td>
+<td><p>Lưu log chương trình.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id14">
+<caption><span class="caption-text"><strong>Business Flow</strong></span><a class="headerlink" href="#id14" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Business Logic Acceptance Criteria</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>Khởi động ứng dụng</p></li>
+</ol>
+</td>
+<td><p>Mở ứng dụng</p></td>
+<td><p>Hiển thị trạng thái điện thoại chưa được kết nối với ứng dụng</p></td>
+</tr>
+<tr class="row-odd"><td><ol class="arabic simple" start="2">
+<li><p>Kết nối thiết bị với ứng dụng</p></li>
+</ol>
+</td>
+<td><p>Kết nối vật lý dây usb</p></td>
+<td><p>Ứng dụng hiển thị thông báo: đã connect với device</p></td>
+</tr>
+<tr class="row-even"><td><ol class="arabic simple" start="3">
+<li><p>Disconnect</p></li>
+</ol>
+</td>
+<td><p>Ngắt kết nối vật lý dây usb</p></td>
+<td><p>Ứng dụng hiển thị thông báo: đã disconnect với device.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="non-function-requirement">
+<h2>Non-Function Requirement<a class="headerlink" href="#non-function-requirement" title="Link to this heading"></a></h2>
+<p>Follow theo phase 1:</p>
+<ul class="simple">
+<li><p>MIoU: 70%</p></li>
+<li><p>Accuracy: 70%</p></li>
+</ul>
+</section>
+<section id="appendix">
+<h2>Appendix<a class="headerlink" href="#appendix" title="Link to this heading"></a></h2>
+<p>Config file</p>
+<table class="docutils align-default" id="id15">
+<caption><span class="caption-text"><strong>Business Flow</strong></span><a class="headerlink" href="#id15" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 33.3%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Desciption</p></th>
+<th class="head"><p>Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mode</span></code></p></td>
+<td><p>Chọn cách ứng dụng khởi động</p></td>
+<td><p>Datatype: String</p>
+<p><code class="docutils literal notranslate"><span class="pre">paused</span></code> : ứng dụng tạm dừng, không chụp ảnh</p>
+<p><code class="docutils literal notranslate"><span class="pre">running</span></code> : ứng dụng hoạt động bình thường</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">processing_mode</span></code></p></td>
+<td><p>Chọn chế độ hoạt động</p></td>
+<td><p>Datatype: String</p>
+<p><code class="docutils literal notranslate"><span class="pre">capture-segment</span></code> : ứng dụng chính</p>
+<p><code class="docutils literal notranslate"><span class="pre">capture-only</span></code> : chỉ thu thập ảnh, không phân tích</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">interval</span></code></p></td>
+<td><p>Thời gian giữa 2 lần liên tiếp chụp ảnh. Có thể thay đổi khi ứng dụng đang chạy, không cần khởi động lại.</p></td>
+<td><p>Datatype: Float (unit: giây)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model_path</span></code></p></td>
+<td><p>Đường dẫn đến folder chưa model</p></td>
+<td><p>Datatype: String</p>
+<p>Sample: “/userdata/models/ddrnet_rk1808.rknn”</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">base_dir</span></code></p></td>
+<td><p>Đường dẫn đến thư mục lưu trữ ảnh</p></td>
+<td><p>Datatype: String</p>
+<p>Sample: “/userdata/captures”</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Wellcome to Docomo Bile Project!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="HLD_Doc.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright workshop participant.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
